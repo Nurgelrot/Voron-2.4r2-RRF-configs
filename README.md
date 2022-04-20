@@ -6,6 +6,6 @@
 - Bondtech LGX Extruder
 - Duet3d Magnetic Filament Monitor -OR- BTT Smart Filament Sensor
 - Phaetus Dragon HF hot end.
-- Euclid probe replacing default Voron Z switch AND inductive probe for Homing & QGL
+- Euclid probe (Replacing Voron Z switch AND inductive probe for Homing & QGL)
 - XY Mechanical Endstop PCB
 - Fysetc 5" Paneldue v3  
