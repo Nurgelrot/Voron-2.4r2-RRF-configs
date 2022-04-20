@@ -101,7 +101,7 @@ M106 P0 S0 H-1                                        ; set fan 0 value. Thermos
 M950 F1 C"121.out2" Q100                              ; create fan 1 on pin 121.out2 and set its frequency
 M106 P1 S1 H1 T45                                     ; set fan 1 value. Thermostatic control is turned on
 
-M950 F2 C"!out3+out3.tach"							  ; Noctau 12v PWM 4 wire on out 3
+M950 F2 C"!out3+out3.tach"							  ; Noctau 12v PWM 4 wire on out3 RPM controlled by MCU temp
 M106 P2 H3 L0.2 T25:45 C"Electronics Fan"
 
 ; =====================================
