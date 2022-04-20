@@ -45,7 +45,7 @@ M574 X2 S1 P"^0.io3.out"							  ; Voron endstop PCB NO VCC Gnd+out for X
 M574 Y2 S1 P"^0.io3.in"                               ;      Gnd+in for Y
 M591 D0 P7 C"121.io1.in"  S0 L6.89 R70:130 E15 	  ; Duet3D rotating magnet sensor for extruder drive 0 is connected to E0 endstop input, enabled, sensitivity 24.8mm.rev, 70% to 130% tolerance, 3mm detection length
 
-; Axis travel limits
+; Axis travel limits --had to make x 249 due to the limit switch board is 1mm off on the r2 will fix sometime. 
 M208 X0:249 Y0:256 Z0:230
 
 ; Belt Locations
