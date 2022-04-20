@@ -7,5 +7,5 @@
 - Duet3d Magnetic Fillament Monitor -OR- BTT Smart Fillament Sensor
 - Phaetus Dragon HF hot end.
 - Euclid probe replacing default Voron z switch
-- XY Mecanical Endstop PCB
+- XY Mechanical Endstop PCB
   
