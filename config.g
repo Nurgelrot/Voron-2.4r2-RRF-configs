@@ -14,7 +14,7 @@ G4 S4   				;wait 2s for expansion boards to start
 M569 P0.0 S1 D3 V10						; Z0 Front Left
 M569 P0.1 S0 D3 V10						; Z1 Rear Left
 M569 P0.2 S1 D3 V10						; Z2 Rear Right
-M569 P0.3 S0 D3 V10						; Z 3Front Right
+M569 P0.3 S0 D3 V10						; Z3 Front Right
 M569 P0.4 S0 D2							; EMPTY
 M569 P0.5 S1 D2							; Y (B Motor)
 M569 P0.6 S1 D2							; X (A Motor)
@@ -89,7 +89,7 @@ M308 S11 P"S10.1" Y"dhthumidity" A"Enc Hum[%]"
 M558 K0 P8 C"^121.io2.in" T18000 F600:180 H2 A10 S0.01
 G31 K0 P500 X-2.5 Y24.5 Z9.07
 
-; nozzle switch
+; nozzle switch -Pretty much unused
 M558 K1 P8 C"^0.io5.in" T18000 F1200:180 H1 A10 S0.005 R0
 G31 K1 P500 X0 Y0 Z0
 
@@ -103,8 +103,9 @@ M106 P1 S1 H1 T45                                     ; set fan 1 value. Thermos
 
 M950 F2 C"!out3+out3.tach"							  ; Noctau 12v PWM 4 wire on out 3
 M106 P2 H3 L0.2 T25:45 C"Electronics Fan"
+
 ; =====================================
-; Lights
+; Lights 24v LED strips top of voron
 ; =====================================
 M950 F3 C"0.out1" Q500
 M106 P3 H-1 L064 C"Lights"
