@@ -8,4 +8,4 @@
 - Phaetus Dragon HF hot end.
 - Euclid probe replacing default Voron z switch
 - XY Mechanical Endstop PCB
-  
+- Fysetc 5" Paneldue v3  
