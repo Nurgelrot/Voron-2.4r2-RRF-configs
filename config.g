@@ -71,14 +71,15 @@ M308 S1 P"121.temp0" Y"thermistor" T100000 B4138  A"Nozzle"                ; con
 M950 H1 C"121.out0" T1                                ; create nozzle heater output on 121.out0 and map it to sensor 1
 M307 H1 B0 S1.00                                      ; disable bang-bang mode for heater  and set PWM limit
 M143 H1 S280                                          ; set temperature limit for heater 1 to 280C
+
 ; ==================================
 ; SENSORS MISC 
 ; ==================================
 
-M308 S3 A"MCU" Y"mcu-temp"
+M308 S3 A"MCU" Y"mcu-temp" ; Electronics temp sensor
 
 ; ==================================
-; CHAMBER SENSOR 
+; CHAMBER SENSOR DTH22 back floor plate
 ; ==================================
 M308 S10 P"io2.out+io2.in" Y"dht22" A"Enc Temp[C]"
 M308 S11 P"S10.1" Y"dhthumidity" A"Enc Hum[%]"
