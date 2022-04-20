@@ -4,7 +4,7 @@
 - Duet3d Duet 3 Expansion Mini 2+
 - Duet3d Duet 3 Toolboard 1LC
 - Bondtech LGX Extruder
-- Duet3d Magnetic Fillament Monitor -OR- BTT Smart Fillament Sensor
+- Duet3d Magnetic Filament Monitor -OR- BTT Smart Filament Sensor
 - Phaetus Dragon HF hot end.
 - Euclid probe replacing default Voron z switch
 - XY Mechanical Endstop PCB
