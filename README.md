@@ -8,4 +8,6 @@
 - Phaetus Dragon HF hot end.
 - Euclid probe (Replacing Voron Z switch AND inductive probe for Homing & QGL)
 - XY Mechanical Endstop PCB
-- Fysetc 5" Paneldue v3  
+- Fysetc 5" Paneldue v3
+## RRF 3.4 with Input shapping.
+Make sure you tune the shaper settings for your printer.
