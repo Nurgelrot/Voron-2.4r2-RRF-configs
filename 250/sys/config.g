@@ -3,8 +3,16 @@ M575 P1 S1 B57600
 
 G90                     ; send absolute coordinates...
 M83                     ; ...but relative extruder moves
-M550 P"OctoPussy"       ; set printer name
-M669 K1                 ; select CoreXY mode
+M550 P"Generic"                              ; set printer name
+
+; Network
+M552 P0.0.0.0 S1                             ; enable network and acquire dynamic address via DHCP
+M586 P0 S1                                   ; enable HTTP
+M586 P1 S0                                   ; disable FTP
+M586 P2 S0                                   ; disable Telnet
+
+; Printer type
+M669 K1                                 ; select CoreXY mode
 G4 S4   				;wait 2s for expansion boards to start
 
 ; ================================== 
