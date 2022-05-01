@@ -14,7 +14,7 @@ G4 S4   				;wait 2s for expansion boards to start
 M569 P0.0 S1 D3 V10						; Z0 Front Left
 M569 P0.1 S0 D3 V10						; Z1 Rear Left
 M569 P0.2 S1 D3 V10						; Z2 Rear Right
-M569 P0.3 S0 D3 V10						; Z3 Front Right
+M569 P0.3 S0 D3 V10						; Z 3Front Right
 M569 P0.4 S0 D2							; EMPTY
 M569 P0.5 S1 D2							; Y (B Motor)
 M569 P0.6 S1 D2							; X (A Motor)
@@ -45,7 +45,7 @@ M574 X2 S1 P"^0.io3.out"							  ; Voron endstop PCB NO VCC Gnd+out for X
 M574 Y2 S1 P"^0.io3.in"                               ;      Gnd+in for Y
 M591 D0 P7 C"121.io1.in"  S0 L6.89 R70:130 E15 	  ; Duet3D rotating magnet sensor for extruder drive 0 is connected to E0 endstop input, enabled, sensitivity 24.8mm.rev, 70% to 130% tolerance, 3mm detection length
 
-; Axis travel limits --had to make x 249 due to the limit switch board is 1mm off on the r2 will fix sometime. 
+; Axis travel limits
 M208 X0:249 Y0:256 Z0:230
 
 ; Belt Locations
@@ -71,15 +71,14 @@ M308 S1 P"121.temp0" Y"thermistor" T100000 B4138  A"Nozzle"                ; con
 M950 H1 C"121.out0" T1                                ; create nozzle heater output on 121.out0 and map it to sensor 1
 M307 H1 B0 S1.00                                      ; disable bang-bang mode for heater  and set PWM limit
 M143 H1 S280                                          ; set temperature limit for heater 1 to 280C
-
 ; ==================================
 ; SENSORS MISC 
 ; ==================================
 
-M308 S3 A"MCU" Y"mcu-temp" ; Electronics temp sensor
+M308 S3 A"MCU" Y"mcu-temp"
 
 ; ==================================
-; CHAMBER SENSOR DTH22 back floor plate
+; CHAMBER SENSOR 
 ; ==================================
 M308 S10 P"io2.out+io2.in" Y"dht22" A"Enc Temp[C]"
 M308 S11 P"S10.1" Y"dhthumidity" A"Enc Hum[%]"
@@ -88,9 +87,9 @@ M308 S11 P"S10.1" Y"dhthumidity" A"Enc Hum[%]"
 
 ; Euclid
 M558 K0 P8 C"^121.io2.in" T18000 F600:180 H2 A10 S0.01
-G31 K0 P500 X-2.5 Y24.5 Z9.07
+G31 K0 P500 X-2.5 Y24.5 Z0 ; No offset for Z set pick it up from config-override.g
 
-; nozzle switch -Pretty much unused
+; nozzle switch
 M558 K1 P8 C"^0.io5.in" T18000 F1200:180 H1 A10 S0.005 R0
 G31 K1 P500 X0 Y0 Z0
 
@@ -102,24 +101,24 @@ M106 P0 S0 H-1                                        ; set fan 0 value. Thermos
 M950 F1 C"121.out2" Q100                              ; create fan 1 on pin 121.out2 and set its frequency
 M106 P1 S1 H1 T45                                     ; set fan 1 value. Thermostatic control is turned on
 
-M950 F2 C"!out3+out3.tach"							  ; Noctau 12v PWM 4 wire on out3 RPM controlled by MCU temp
+M950 F2 C"!out3+out3.tach"							  ; Noctau 12v PWM 4 wire on out 3
 M106 P2 H3 L0.2 T25:45 C"Electronics Fan"
-
 ; =====================================
-; Lights 24v LED strips top of voron
+; Lights
 ; =====================================
 M950 F3 C"0.out1" Q500
 M106 P3 H-1 L064 C"Lights"
 
 
 ; Accelerometer
-M955 P121.0 I05										  ; toolboard mounted right side of toolhead VIN up OUT0 forward 
+M955 P121.0 I05 									  ; toolboard mounted right side of toolhead VIN up OUT0 forward 
 
 ; Tools
 M563 P0 D0 H1 F0                                      ; define tool 0
 G10 P0 X0 Y0 Z0                                       ; set tool 0 axis offsets
 G10 P0 R0 S0                                          ; set initial tool 0 active and standby temperatures to 0C
 M572 D0 S0.06										  ; Pressure Advance for Tool 0
+M593 P"zvddd" F55.5 S0.3								  ; input shaping
 T0
 
 M501
