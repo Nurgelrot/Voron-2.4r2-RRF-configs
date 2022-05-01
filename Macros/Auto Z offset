@@ -63,7 +63,7 @@ while iterations < var.NumTests
 	;M118 P3 S{"running total = " ^ var.RunningTotal} ; send running total to DWC console
 	G4 S0.5
 	
-set var.Average = {(var.RunningTotal - var.Highest - var.Lowest) / (var.NumTests - 2)} 	; calculate the average after discarding th ehigh & low reading
+set var.Average = {(var.RunningTotal - var.Highest - var.Lowest) / (var.NumTests - 2)} 	; calculate the average after discarding the high & low reading
 ;M118 P3 S{"running total = " ^ var.RunningTotal} ; send running total to DWC console
 ;M118 P3 S{"low reading = " ^ var.Lowest} ; send low reading to DWC console
 ;M118 P3 S{"high reading = " ^ var.Highest} ; send high reading to DWC console
@@ -72,9 +72,9 @@ M118 P3 S{"Average excluding high and low reading = " ^ var.Average} ; send aver
 
 G31 P500 Z{var.Average} ; set Z probe offset to the average reading
 M564 S1 H1 ; Reset limits
+G1 Z12
+M400
+M402
 M558 F{var.ProbeSpeedHigh}:{var.ProbeSpeedLow} ; reset probe speed to original
 M291 P{"Trigger height set to : " ^ sensors.probes[0].triggerHeight  ^ " OK to save to config-overide.g, cancel to use until next restart"} R"Finished" S3
-G1 Z12
-M402 ; make sure  probe is stored
-M400 ; wait for moves
-M500 P31 ; optionally save result to config-overide.g
+M500 P31 ;save result to config-overide.g
