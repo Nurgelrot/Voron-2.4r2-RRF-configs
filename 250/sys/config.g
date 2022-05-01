@@ -26,9 +26,9 @@ M92 X80.00 Y80.00 Z400.00 E404						; set steps per mm
 
 ; Accelerations and speeds
 M566 X450 Y450 Z240 E300        					; Set maximum instantaneous speed changes (mm/min) aka Jerk
-M203 X10000 Y10000 Z1000 E3600 						; Set maximum speeds (mm/min)
-M201 X5000 Y5000 Z350 E600     						; Set maximum accelerations (mm/s^2)
-M204 P4000 T5000                					; Set printing acceleration and travel accelerations
+M203 X10800 Y10800 Z1000 E3600 						; Set maximum speeds (mm/min)
+M201 X6000 Y6000 Z350 E600     						; Set maximum accelerations (mm/s^2)
+M204 P5000 T6000                					; Set printing acceleration and travel accelerations
 
 ; Stepper driver currents
 ; set motor currents (mA) and motor idle factor in per cent
@@ -42,18 +42,20 @@ M84 S30                        						; Idle timeout
 
 ; Endstops
 M574 X2 S1 P"^0.io3.out"							  ; Voron endstop PCB NO VCC Gnd+out for X 
-M574 Y2 S1 P"^0.io3.in"                               ;      Gnd+in for Y
-M591 D0 P7 C"121.io1.in"  S0 L6.89 R70:130 E15 	  ; Duet3D rotating magnet sensor for extruder drive 0 is connected to E0 endstop input, enabled, sensitivity 24.8mm.rev, 70% to 130% tolerance, 3mm detection length
+M574 Y2 S1 P"^0.io3.in"                               ; Gnd+in for Y
+M591 D0 P7 C"121.io1.in"  S0 L6.89 R70:130 E15 	      ; BTT Pulse sensor for extruder drive 0 is connected to E0 endstop 
+                                                      ; input, enabled, sensitivity 6.89mm/pulse, 70% to 130% tolerance, 15mm detection 
+                                                      ; length
 
 ; Axis travel limits
 M208 X0:249 Y0:256 Z0:230
 
 ; Belt Locations
 M671 X-65:-65:320:320 Y-20:350:350:-20 S20      ; Define Z belts locations (Front_Left, Back_Left, Back_Right, Front_Right)
-											; Position of the bed leadscrews.. 4 Coordinates
-											; Snn Maximum correction to apply to each leadscrew in mm (optional, default 1.0)
-                                            ; S20 - 20 mm spacing
-M557 X30:220 Y30:220 P5                     ; Define bed mesh grid (inductive probe, positions include the Y offset!)
+											    ; Position of the bed leadscrews.. 4 Coordinates
+											    ; Snn Maximum correction to apply to each leadscrew in mm (optional, default 1.0)
+                                                ; S20 - 20 mm spacing
+M557 X30:220 Y30:220 P5                         ; Define bed mesh grid (inductive probe, positions include the Y offset!)
 
 ; ==================================
 ; Bed heater
@@ -109,16 +111,20 @@ M106 P2 H3 L0.2 T25:45 C"Electronics Fan"
 M950 F3 C"0.out1" Q500
 M106 P3 H-1 L064 C"Lights"
 
-
-; Accelerometer
-M955 P121.0 I05 									  ; toolboard mounted right side of toolhead VIN up OUT0 forward 
-
+; =====================================
 ; Tools
+; =====================================
 M563 P0 D0 H1 F0                                      ; define tool 0
 G10 P0 X0 Y0 Z0                                       ; set tool 0 axis offsets
 G10 P0 R0 S0                                          ; set initial tool 0 active and standby temperatures to 0C
 M572 D0 S0.06										  ; Pressure Advance for Tool 0
-M593 P"zvddd" F55.5 S0.3								  ; input shaping
-T0
 
-M501
+; ======================================
+; Input Shaper
+; ======================================
+; Accelerometer
+M955 P121.0 I05 									  ; toolboard mounted right side of toolhead VIN up OUT0 forward 
+M593 P"zvddd" F55.5 S0.3								  ; input shaping
+
+T0                                                    ; Select T0 (default)
+M501                                                  ; load config-override.g
