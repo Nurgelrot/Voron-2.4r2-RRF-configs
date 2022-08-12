@@ -23,7 +23,7 @@
 ## RRF 3.4 with Input shapping.
 Make sure you tune the shaper settings for your printer.
 
-## Commin soon Micon 120mm
+## Comin' soon Micon 120mm
 - Mellow FLY Super8 v1.2
 - Duet3d Duet 3 Toolboard 1LC
 - LDO Orbiter2 Extruder
