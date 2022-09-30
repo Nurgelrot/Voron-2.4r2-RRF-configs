@@ -26,7 +26,7 @@ Make sure you tune the shaper settings for your printer.
 ## Micon 120mm
 - BTT OctopusPro (429)
 - LDO Orbiter2 Extruder
-- BTT Smart Filament Sensor
+- BTT Smart Filament Sensor (comming soon)
 - E3D Revo Voron hot end.
 - Klicky Probe (Replacing Voron Z switch AND inductive probe for Homing & QGL)
 - Fly Screen 4.3.
