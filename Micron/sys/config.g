@@ -86,5 +86,3 @@ G10 P0 R0 S0                                   ; set initial tool 0 active and s
 ; Custom settings are not defined
 T0
 M501
-; Display
-M918 P1 E4 F100000
