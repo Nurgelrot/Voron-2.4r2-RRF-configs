@@ -23,12 +23,11 @@
 ## RRF 3.4 with Input shapping.
 Make sure you tune the shaper settings for your printer.
 
-## Comin' soon Micon 120mm
-- Mellow FLY Super8 v1.2
-- Duet3d Duet 3 Toolboard 1LC
+## Micon 120mm
+- BTT OctopusPro (429)
 - LDO Orbiter2 Extruder
 - BTT Smart Filament Sensor
 - E3D Revo Voron hot end.
 - Klicky Probe (Replacing Voron Z switch AND inductive probe for Homing & QGL)
-- BTT TFT24 in Emulation mode(no touch screen).
+- Fly Screen 4.3.
 
