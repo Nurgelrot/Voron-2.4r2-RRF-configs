@@ -20,9 +20,6 @@
 - XY Mechanical Endstop PCB
 - Fysetc 5" Paneldue v3
 
-## RRF 3.4 with Input shapping.
-Make sure you tune the shaper settings for your printer.
-
 ## Micon 120mm
 - BTT OctopusPro (429)
 - LDO Orbiter2 Extruder
