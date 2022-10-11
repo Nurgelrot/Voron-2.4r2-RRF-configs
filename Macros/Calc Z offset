@@ -1,5 +1,8 @@
-;Calibrate BL Touch
-; if two speed probing is configured in M558,we probably want to reduce the speed for this test
+; Quick macro to set the Z offset with a Euclid/Klicky etc...
+; Bed should be at common printing temp nozzle should be at 150-160C so that any plastic nozzle crud wipes away.
+; I Use the standard office paper offset gauge but really you can just set it so the nozzle is just touching.
+
+; save off the deafult probing speeds
 var ProbeSpeedHigh = sensors.probes[0].speeds[0] 
 var ProbeSpeedLow = sensors.probes[0].speeds[1]
 
@@ -26,7 +29,9 @@ M402 ; make sure probe is stored
 M400 ; Wait for move to stop
 M564 S0 H0 ; Allow movement beyond limits
 
-; Jog head to position
+; Jog head to position using the standard paper test.
+; For glass/smooth pei you want the paper to have good resistance in all directions but movable. 
+; For texterured you want the paper fully trapped but not smashed
 M291 P"Jog nozzle to touch bed" R"Set nozzle to zero" S3 Z1
 G92 Z0 ; set Z position to zero
 
@@ -75,6 +80,6 @@ M564 S1 H1 ; Reset limits
 G1 Z12
 M400
 M402
-M558 F{var.ProbeSpeedHigh}:{var.ProbeSpeedLow} ; reset probe speed to original
+M558 F{var.ProbeSpeedHigh}:{var.ProbeSpeedLow} ; reset probe speed back to original
 M291 P{"Trigger height set to : " ^ sensors.probes[0].triggerHeight  ^ " OK to save to config-overide.g, cancel to use until next restart"} R"Finished" S3
 M500 P31 ;save result to config-overide.g
