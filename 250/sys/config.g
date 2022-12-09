@@ -25,7 +25,7 @@ M350 X16 Y16 Z16 E16 I1								; configure microstepping with interpolation
 M92 X80.00 Y80.00 Z400.00 E404						; set steps per mm
 
 ; Accelerations and speeds
-M566 X450 Y450 Z240 E300        					; Set maximum instantaneous speed changes (mm/min) aka Jerk
+M566 X700 Y700 Z240 E300        					; Set maximum instantaneous speed changes (mm/min) aka Jerk
 M203 X18000 Y18000 Z1200 E3600 						; Set maximum speeds (mm/min)
 M201 X8000 Y8000 Z350 E600     						; Set maximum accelerations (mm/s^2)
 ;M204 P7000 T7000                					; Set printing acceleration and travel accelerations
