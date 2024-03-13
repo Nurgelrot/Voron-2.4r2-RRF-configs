@@ -31,9 +31,20 @@ serial.aux.rxTxPins = { A.10, A.9 }
 8266wifi.csPin = B.12;
 
 //TMC Smart Drivers
-stepper.numSmartDrivers = 8;
+stepper.numSmartDrivers = 7;
 //TMC 5160 Drivers
-stepper.num5160Drivers = 8;
+stepper.num5160Drivers = 7;
 stepper.spiChannel = 0;
-				
 /
+can.csPin = PD_3
+can.spiChannel = 2
+				
+//MINI 12864
+lcd.encoderPinA=BTN_EN1
+lcd.encoderPinB=BTN_EN2
+lcd.encoderPinSw=BTN_ENC
+lcd.lcdCSPin=LCD_EN
+lcd.lcdDCPin=LCD_RS
+lcd.spiChannel=0
+//lcd.lcdBeepPin=NoPin
+heat.spiTempSensorCSPins = {F.8, NoPin, NoPin, NoPin, NoPin, NoPin, NoPin, NoPin}
