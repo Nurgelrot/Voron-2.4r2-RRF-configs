@@ -15,7 +15,7 @@
 - Clockwork2
 - Duet3d Magnetic Filament Monitor -OR- BTT Smart Filament Sensor
 - Rapido Hotend.
-- TAP Replaced in 2023/24 replaced Euclid probe (Replacing Voron Z switch AND inductive probe for Homing & QGL)
+- TAPr8
 - XY Mechanical Endstop PCB
 - Fysetc 5" Paneldue v3
 
