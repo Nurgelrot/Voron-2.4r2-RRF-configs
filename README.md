@@ -6,7 +6,7 @@
 - Bondtech LGX Extruder
 - Duet3d Magnetic Filament Monitor -OR- BTT Smart Filament Sensor
 - Slice Mosquito hot end.
-- Euclid probe (Replacing Voron Z switch AND inductive probe for Homing & QGL)
+- TAP Replaced in 2023/24 Euclid probe (Replacing Voron Z switch AND inductive probe for Homing & QGL)
 - XY Mechanical Endstop PCB
 - Fysetc 5" Paneldue v3
 
@@ -16,7 +16,7 @@
 - Bondtech LGX Extruder
 - Duet3d Magnetic Filament Monitor -OR- BTT Smart Filament Sensor
 - Slice Mosquito hot end.
-- Euclid probe (Replacing Voron Z switch AND inductive probe for Homing & QGL)
+- TAP Replaced in 2023/24 replaced Euclid probe (Replacing Voron Z switch AND inductive probe for Homing & QGL)
 - XY Mechanical Endstop PCB
 - Fysetc 5" Paneldue v3
 
