@@ -13,7 +13,7 @@
 - Duet3d Duet 3 6HC MCU
 - Mellow Fly SB2040v1 Exparamental Picocan
 - Clockwork2
-- Duet3d Magnetic Filament Monitor -OR- BTT Smart Filament Sensor
+- Duet3d Magnetic Filament Monitor
 - Rapido Hotend.
 - TAPr8
 - XY Mechanical Endstop PCB
