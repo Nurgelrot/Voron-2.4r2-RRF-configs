@@ -1,5 +1,5 @@
 ; reset current position to 0
-G92 X0
+;G92 X0
 
 if !move.axes[1].homed
 	; raise Z a bit

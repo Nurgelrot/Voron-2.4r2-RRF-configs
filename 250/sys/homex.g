@@ -8,10 +8,10 @@ if !move.axes[1].homed
 	G90
 
 ; move Y forward to avoid hitting the probe dock
-G91
-G1 Y10 X-10 H2 F6000
+;G91
+;G1 Y10 X-10 H2 F6000
 ;G1 Y-10 H2 F2400
-G90
+;90
 
 ; Move quickly to X axis endstop and stop there (first pass)
 G91
