@@ -26,5 +26,5 @@
 - BTT Smart Filament Sensor (coming soon)
 - E3D Revo Voron hot end.
 - Klicky Probe (Replacing Voron Z switch AND inductive probe for Homing & QGL)
-- Fly Screen 4.3.
+- Fly 12864 screen.
 
