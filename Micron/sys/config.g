@@ -8,6 +8,7 @@ G90                                            ; send absolute coordinates...
 M83                                            ; ...but relative extruder moves
 M550 P"Goldfinger"                                 ; set printer name
 M669 K1                                        ; select CoreXY mode
+G4 S5  				;wait 2s for expansion boards to start
 
 ; Network
 M552 S1                                        ; enable network
@@ -15,21 +16,26 @@ M586 P0 S1                                     ; enable HTTP
 M586 P1 S0                                     ; disable FTP
 M586 P2 S0                                     ; disable Telnet
 
-; Display (Fly Screen)
-M575 P1 S0 B57600
-; Drives
-M569 P0.4 S0 D3; V2						       ; Z0 Front Left
-M569 P0.5 S1 D3; V2						       ; Z1 Rear Left
-M569 P0.6 S0 D3; V2						       ; Z2 Rear Right
-M569 P0.7 S1 D3; V2						       ; Z3Front Right
-; drive 3 empty
-m569 P0.2 S0 D2                                ; E Orbiter2
-M569 P0.1 S0 D2							       ; Y (B Motor)
-M569 P0.0 S0 D2							       ; X (A Motor)
+; Display 
 
-M584 Y0.0 X0.1 Z0.4:0.5:0.6:0.7 E0.2           ; set drive mapping
+
+;M98 P"screen.g"
+; Drives
+M569 P0.0 S0 D2							       ; X (A Motor)
+M569 P0.1 S0 D2							       ; Y (B Motor)
+M569 P121.0 S0 D2                                ; E Orbiter2
+; drive 3 empty
+M569 P0.3 S0 D3; V2						       ; Z0 Front Left
+M569 P0.4 S1 D3; V2						       ; Z1 Rear Left
+M569 P0.5 S0 D3; V2						       ; Z2 Rear Right
+M569 P0.6 S1 D3; V2						       ; Z3Front Right
+
+
+
+
+M584 Y0.0 X0.1 Z0.3:0.4:0.5:0.6 E121.0          ; set drive mapping
 M350 X16 Y16 Z16 E16 I1                        ; configure microstepping with interpolation
-M92 X100.00 Y100.00 Z400.00 E690.00            ; set steps per mm
+M92 X100.00 Y100.00 Z400.00 E562            ; set steps per mm
 
 M566 X450.00 Y450.00 Z240.00 E300.00           ; set maximum instantaneous speed changes (mm/min)
 M203 X18000.00 Y18000.00 Z1200.00 E3600.00     ; set maximum speeds (mm/min)
@@ -46,16 +52,17 @@ M208 X0 Y0 Z0 S1                               ; set axis minima
 M208 X114 Y122 Z105 S0                          ; set axis maxima
 
 ; Endstops
-M574 X2 S1 P"xstop"                            ; configure switch-type (e.g. microswitch) endstop for high end on X via pin xstop
+M574 X2 S1 P"^121.io3.in"                            ; configure switch-type (e.g. microswitch) endstop for high end on X via pin xstop
 M574 Y2 S1 P"ystop"                            ; configure switch-type (e.g. microswitch) endstop for high end on Y via pin ystop
+;M591 D0 P3 C"121.io1.in" S1 R70:130 L26.00 E3.0
 
 ; Bed Leveling Data
 M671 X-50:-50:170:170 Y-4.5:180:180:-4.5 S20   ; Define Z belts locations (Front_Left, Back_Left, Back_Right, Front_Right)
-M557 X15:105 Y30:100 P3                        ; Define bed mesh grid (inductive probe, positions include the Y offset!)
+M557 X15:105 Y30:100 P6                        ; Define bed mesh grid (inductive probe, positions include the Y offset!)
 
 
 ; Z-Probe
-M558 P5 C"^zstop" T18000 F600:180 H2 A10 S0.01 ; set Z probe type to KLICKY and the dive height + speeds
+M558 P8 C"^121.io0.in" T18000 F600:180 H2 A5   ; set Z probe type to KLICKY and the dive height + speeds
 G31 P500 X-2.5 Y30 Z0                          ; set Z probe trigger value, offset and trigger height
                      
 ; Bed Heater
@@ -67,16 +74,19 @@ M143 H0 S120                                   ; set temperature limit for heate
 M143 H0 S120                                   ; set temperature limit for heater 0 to 120C
 
 ; Tool Heater
-M308 S1 P"e0temp" Y"thermistor" T100000 B4092  ; configure sensor 1 as thermistor on pin e0temp
-M950 H1 C"e0heat" T1                           ; create nozzle heater output on e0heat and map it to sensor 1
+M308 S1 P"121.temp0" Y"thermistor" T100000 B4092  ; configure sensor 1 as thermistor on pin e0temp
+M950 H1 C"121.out0" T1                           ; create nozzle heater output on e0heat and map it to sensor 1
 M307 H1 B0 S1.00                               ; disable bang-bang mode for heater  and set PWM limit
 M143 H1 S280                                   ; set temperature limit for heater 1 to 280C
 
 ; Fans
-M950 F0 C"fan0" Q500                           ; create fan 0 on pin fan0 and set its frequency
+M950 F0 C"121.out1" Q100                          ; create fan 0 on pin fan0 and set its frequency
 M106 P0 S0 H-1                                 ; set fan 0 value. Thermostatic control is turned off
-M950 F1 C"fan1" Q500                           ; create fan 1 on pin fan1 and set its frequency
-M106 P1 S0 H1 T45                              ; set fan 1 value. Thermostatic control is turned on
+M950 F1 C"121.out2" Q100                           ; create fan 1 on pin fan1 and set its frequency
+M106 P1 S1 H1 T45                              ; set fan 1 value. Thermostatic control is turned on
+
+; Accelerometer
+M955 P121.0 I54
 
 ; Tools
 M563 P0 S"Revo" D0 H1 F0                       ; define tool 0
@@ -86,3 +96,7 @@ G10 P0 R0 S0                                   ; set initial tool 0 active and s
 ; Custom settings are not defined
 T0
 M501
+M572 D0 S0.055
+M593 P"zvd" F42 S0.10
+M98 P"screen.g"
+
