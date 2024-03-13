@@ -21,7 +21,7 @@
 
 ## Micon 120mm
 - BTT OctopusPro (429)
-- LDO Orbiter2 Extruder
+- LGXlite v2 Extruder
 - Duet 1LC v1.2 Toolboard.
 - BTT Smart Filament Sensor (coming soon)
 - E3D Revo Voron hot end.
