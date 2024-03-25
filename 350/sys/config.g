@@ -1,3 +1,11 @@
+; Network uncomment if not using a SBC 
+;M550 P"Duet 3"; set hostname
+; Network
+;M552 P0.0.0.0 S1 ; configure Ethernet adapter
+;M586 P0 S1                                     ; enable HTTP
+;M586 P1 S0                                     ; disable FTP
+;M586 P2 S0                                     ; disable Telnet
+
 ;==================================						;
 ; DISPLAY												;
 ;==================================						;
