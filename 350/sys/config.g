@@ -1,3 +1,11 @@
+; Network uncomment if not using a SBC 
+;M550 P"Duet 3"; set hostname
+; Network
+;M552 P0.0.0.0 S1 ; configure Ethernet adapter
+;M586 P0 S1                                     ; enable HTTP
+;M586 P1 S0                                     ; disable FTP
+;M586 P2 S0                                     ; disable Telnet
+
 ;==================================						;
 ; DISPLAY												;
 ;==================================						;
@@ -24,7 +32,7 @@ M569 P124.0 S1 D2         								; E On toolboard CAN addr 124
 M584 X0.4 Y0.5 Z0.0:0.1:0.2:0.3 E124.0					;
 M350 X16 Y16 Z16 E16 I1									; configure microstepping with interpolation
 M92 X160.00 Y160.00 Z400.00 E708.00						; set steps per mm
-M906 X1000 Y1000 Z1000 E550 I50 						; XYZ and E current
+M906 X1200 Y1200 Z1000 E550 I50 						; XYZ and E current
 M84 S30                        							; Idle timeout
 														;
 ;==================================                 	;

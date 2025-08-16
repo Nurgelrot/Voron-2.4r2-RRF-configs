@@ -13,18 +13,18 @@
 - Duet3d Duet 3 6HC MCU
 - Mellow Fly SB2040v1 Exparamental Picocan
 - Clockwork2
-- Duet3d Magnetic Filament Monitor -OR- BTT Smart Filament Sensor
+- Duet3d Magnetic Filament Monitor
 - Rapido Hotend.
-- TAP Replaced in 2023/24 replaced Euclid probe (Replacing Voron Z switch AND inductive probe for Homing & QGL)
+- TAPr8
 - XY Mechanical Endstop PCB
 - Fysetc 5" Paneldue v3
 
 ## Micon 120mm
 - BTT OctopusPro (429)
-- LDO Orbiter2 Extruder
+- LGXlite v2 Extruder
 - Duet 1LC v1.2 Toolboard.
 - BTT Smart Filament Sensor (coming soon)
 - E3D Revo Voron hot end.
 - Klicky Probe (Replacing Voron Z switch AND inductive probe for Homing & QGL)
-- Fly Screen 4.3.
+- Fly 12864 screen.
 
